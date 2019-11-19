@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block content %}
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td>
+              <h2 align="center">Human</h2>
+          </td>
+          <td class=centered>
+              <h2 align="center">ScoreBoard</h2>
+          </td>
+          <td class=centered>
+              <h2 align="center">Computer</h2>
+          </td>
+        </tr>
+        <tr></tr>
+        <tr>
+          <td>
+              <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <a href="{{ url_for('play_rock')}}"><img height=150 width=150 src="{{ url_for('static', filename='images/rock.png') }}" alt="Rock"></a>
+                      </td>
+                      <td>
+                          <a href="{{ url_for('play_paper')}}"><img height=150 width=150 src="{{ url_for('static', filename='images/paper.png') }}" alt="Paper"></a>
+                      </td>
+                      <td>
+                          <a href="{{ url_for('play_scissors') }}"><img height=150 width=150 src="{{ url_for('static', filename='images/scissors.png') }}" alt="Scissors"></a>
+                      </td>
+                    </tr>
+                    </tbody>
+                    </table>
+          </td>
+          <td>
+              <table>
+                  <tbody>
+                    <tr>
+                      <td align="center">Wins</td>
+                      <td align="center">Losses</td>
+                      <td align="center">Ties</td>
+                    </tr>
+                    <tr>
+                      <td align="center"> {{game_state[0] }}</td>
+                      <td align="center"> {{game_state[1] }}</td>
+                      <td align="center"> {{game_state[2] }}</td>
+                    </tr>
+                    </tbody>
+                    </table>
+          </td>
+          <td>
+              <img height=150 width=250 src="{{ url_for('static', filename='images/robot.png') }}" alt="Robot">
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td align="center"><h2>Last Played</h2></td>
+          <td></td>
+        </tr>
+        <tr>
+            <td align="center"><h2>Last Human</h2></td>
+            <td></td>
+            <td align="center"><h2>Last Robot</h2></td>
+        </tr>
+        <tr>
+            <td align="center"><h2>{{ player_choice }}</h2></td>
+            <td align="center"><h2>vs</h2></td>
+            <td align="center"><h2>{{ robot_choice }}</h2></td>
+        </tr>
+      </tbody>
+    </table>
+    <div align="center" >
+      <a href="{{ url_for('restart') }}"><button>Restart</button></a>
+    </div>
+{% endblock content %}
